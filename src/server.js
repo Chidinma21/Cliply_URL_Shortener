@@ -4,11 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import config from "./config.js";
-import {
-  createShortUrl,
-  getLongUrl,
-  incrementClicks,
-} from "./database/db.js";
+import { createShortUrl, getLongUrl, incrementClicks } from "./database/db.js";
 import { connectWithRetry, pool } from "./database/connect.js";
 import { connectCache } from "./database/cache.js";
 
@@ -58,8 +54,8 @@ async function startServer() {
     await connectWithRetry();
     await connectCache();
 
-    app.listen(config.server.port, () => {
-      console.log(`Server live at ${config.server.hostUrl}`);
+    app.listen(config.server.port, "0.0.0.0", () => {
+      console.log(`Cliply is live at ${config.server.hostUrl}`);
     });
   } catch (err) {
     console.error("Critical Failure at startup:", err);

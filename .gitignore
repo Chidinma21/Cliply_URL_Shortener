@@ -1,2 +1,18 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Environment
 .env
-node_modules
+.env.local
+
+# Docker / Databases
+postgres_data/
+redis_data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
