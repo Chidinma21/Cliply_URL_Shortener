@@ -15,6 +15,7 @@ const requiredEnvs = [
   "HOST_URL",
   "REDIS_HOST",
   "REDIS_PORT",
+  "REDIS_PASSWORD"
 ];
 
 const missingEnvs = requiredEnvs.filter((env) => !process.env[env]);
@@ -45,6 +46,7 @@ const config = {
   cache: {
     host: process.env.REDIS_HOST,
     port: parseInt(process.env.REDIS_PORT, 10),
+    password: process.env.REDIS_PASSWORD,
     ttl: parseInt(process.env.REDIS_TTL, 10) || 86400,
   },
 };

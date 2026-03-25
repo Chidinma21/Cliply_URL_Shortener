@@ -35,6 +35,7 @@ app.get("/:shortCode", async (req, res) => {
   try {
     const longUrl = await getLongUrl(pool, shortCode);
     if (longUrl) {
+      console.log(`Redirecting ${shortCode} to ${longUrl}`);
       incrementClicks(pool, shortCode);
       res.redirect(302, longUrl);
     } else {

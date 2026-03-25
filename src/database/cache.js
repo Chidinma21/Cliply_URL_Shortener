@@ -2,7 +2,7 @@ import { createClient } from "redis";
 import config from "../config.js";
 
 const redisClient = createClient({
-  url: `redis://${config.cache.host}:${config.cache.port}`,
+  url: `redis://:${config.cache.password}@${config.cache.host}:${config.cache.port}`,
 });
 
 redisClient.on("connect", () => console.log("Redis: Connecting..."));
